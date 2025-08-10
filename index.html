@@ -72,6 +72,12 @@
   <div id="settingsModal" class="modal hidden">
     <div class="modal-body">
       <h3>Settings</h3>
+      <!-- ADDED input for Google Sheet URL -->
+      <label>Google Sheet CSV URL:
+        <input id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv" />
+      </label>
+      <hr style="margin: 1rem 0;">
+      <p>For Calendar Sync (Optional):</p>
       <label>Apps Script Base URL:
         <input id="baseUrl" placeholder="https://script.google.com/macros/s/XXX/exec" />
       </label>
@@ -82,7 +88,7 @@
         <button id="saveSettings">Save</button>
         <button id="closeSettings">Close</button>
       </div>
-      <p class="note">Deploy Apps Script as a web app (Execute as: Me, Who has access: Anyone) and set the token in Script Properties.</p>
+      <p class="note">To get the CSV URL, open your Google Sheet, go to File > Share > Publish to web, select the correct sheet, and publish as "Comma-separated values (.csv)".</p>
     </div>
   </div>
 
