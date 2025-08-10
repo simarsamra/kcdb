@@ -1,0 +1,38 @@
+{
+  "rotation_days": 4,
+  "categories": ["Breakfast","Lunch","Dinner","Spare"],
+  "recipes": {
+    "Breakfast": [
+      {
+        "title":"Oatmeal with Berries",
+        "ingredients":["1 cup rolled oats","2 cup water","0.5 cup berries"],
+        "steps":["Boil water","Add oats","Simmer 5 min","Top with berries"],
+        "prepNotes":""
+      }
+    ],
+    "Lunch": [
+      {
+        "title":"Grilled Cheese",
+        "ingredients":["2 slice bread","2 slice cheddar cheese","1 tbsp butter"],
+        "steps":["Butter bread","Add cheese","Grill until golden"],
+        "prepNotes":""
+      }
+    ],
+    "Dinner": [
+      {
+        "title":"Pasta Marinara",
+        "ingredients":["200 g pasta","1 cup tomato sauce"],
+        "steps":["Boil pasta","Heat sauce","Mix and serve"],
+        "prepNotes":""
+      }
+    ],
+    "Spare": [
+      {
+        "title":"Fruit Bowl",
+        "ingredients":["2 cup mixed fruit"],
+        "steps":["Chop fruits","Serve chilled"],
+        "prepNotes":""
+      }
+    ]
+  }
+}
