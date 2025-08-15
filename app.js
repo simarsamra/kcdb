@@ -205,3 +205,24 @@ document.addEventListener('keydown', (e) => {
     recipeTitleEl.textContent = 'Failed to load recipes.json';
   }
 })();
+
+// Auto-refresh when a new deployment is available (GitHub Pages)
+const VERSION_POLL_MS = 60000; // 60s
+let currentVersion = null;
+
+async function pollVersion() {
+  try {
+    const res = await fetch('version.json?ts=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const v = await res.json();
+    if (!currentVersion) {
+      currentVersion = v.version || '';
+      return;
+    }
+    if (v.version && v.version !== currentVersion) {
+      location.reload();
+    }
+  } catch {}
+}
+setInterval(pollVersion, VERSION_POLL_MS);
+pollVersion();
