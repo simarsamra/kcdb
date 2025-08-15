@@ -1,55 +1,557 @@
 {
-  "rotation_days": 4,
+  "rotation_days": 14,
   "cuisines": {
     "international": {
       "Breakfast": [
         {
-          "title": "Oatmeal with Berries",
-          "ingredients": ["1 cup rolled oats", "2 cup water", "0.5 cup berries"],
-          "steps": ["Boil water", "Add oats", "Simmer 5 min", "Top with berries"],
+          "title": "Overnight Oats with Chia, Flax and Berries",
+          "ingredients": [
+            "1/2 cup rolled oats",
+            "1/2 cup unsweetened almond milk or low fat milk",
+            "1 tbsp chia seeds",
+            "1 tbsp ground flaxseed",
+            "1/4 cup mixed berries",
+            "1 tsp honey or maple (optional)",
+            "Pinch cinnamon"
+          ],
+          "steps": [
+            "Combine oats, milk, chia, flax and cinnamon in a jar.",
+            "Stir, top with berries, cover and refrigerate overnight.",
+            "Sweeten to taste and serve."
+          ],
+          "prepNotes": "Mix and refrigerate 6 to 12 hours before breakfast."
+        },
+        {
+          "title": "Avocado Tomato Whole Grain Toast",
+          "ingredients": [
+            "2 slices whole grain bread",
+            "1 ripe avocado",
+            "6 cherry tomatoes halved",
+            "1 tsp extra virgin olive oil",
+            "Lemon juice, black pepper, chili flakes",
+            "1 tsp mixed seeds (pumpkin, sesame) optional"
+          ],
+          "steps": [
+            "Toast the bread.",
+            "Mash avocado with lemon, pepper and chili flakes.",
+            "Spread on toast, top with tomatoes and drizzle olive oil.",
+            "Sprinkle seeds if using."
+          ],
           "prepNotes": ""
+        },
+        {
+          "title": "Greek Yogurt Parfait with Walnuts and Oats",
+          "ingredients": [
+            "3/4 cup low fat plain Greek yogurt",
+            "1/4 cup rolled oats",
+            "1 small banana sliced",
+            "1/4 cup berries",
+            "1 tbsp walnuts chopped",
+            "1 tsp honey (optional)"
+          ],
+          "steps": [
+            "Layer yogurt, oats and fruit in a bowl or glass.",
+            "Top with walnuts and a light drizzle of honey."
+          ],
+          "prepNotes": "Lightly toast walnuts 3 to 5 minutes for extra flavor (optional)."
+        },
+        {
+          "title": "Barley Porridge with Apple and Cinnamon",
+          "ingredients": [
+            "1/2 cup pearled barley or barley flakes",
+            "1 1/2 cups water or milk blend",
+            "1 small apple diced",
+            "1/2 tsp cinnamon",
+            "1 tbsp raisins (optional)",
+            "1 tbsp chopped almonds or walnuts"
+          ],
+          "steps": [
+            "Rinse barley. Add to pot with water or milk and bring to a boil.",
+            "Simmer until tender (barley flakes 8 to 10 min, pearled 25 to 30 min).",
+            "Stir in apple, cinnamon and raisins. Top with nuts and serve."
+          ],
+          "prepNotes": "Soak pearled barley 1 hour to reduce cook time (optional)."
+        },
+        {
+          "title": "Spinach Flax Smoothie",
+          "ingredients": [
+            "1 cup spinach",
+            "1 banana",
+            "1/2 cup frozen berries",
+            "1 tbsp ground flaxseed",
+            "2 tbsp rolled oats",
+            "3/4 to 1 cup unsweetened almond milk"
+          ],
+          "steps": [
+            "Add all ingredients to a blender.",
+            "Blend until smooth and serve immediately."
+          ],
+          "prepNotes": "Soak oats 10 minutes in milk for extra smooth texture (optional)."
         }
       ],
       "Lunch": [
         {
-          "title": "Grilled Cheese",
-          "ingredients": ["2 slice bread", "2 slice cheddar cheese", "1 tbsp butter"],
-          "steps": ["Butter bread", "Add cheese", "Grill until golden"],
+          "title": "Mediterranean Chickpea Quinoa Salad",
+          "ingredients": [
+            "1 cup cooked chickpeas (low sodium) or 1/2 cup dry soaked overnight",
+            "1 cup cooked quinoa",
+            "1/2 cucumber diced",
+            "1 tomato diced",
+            "1/4 red onion thinly sliced",
+            "2 tbsp parsley chopped",
+            "1 tbsp extra virgin olive oil",
+            "1 to 2 tbsp lemon juice",
+            "1/2 tsp cumin, salt and pepper to taste"
+          ],
+          "steps": [
+            "Combine chickpeas, quinoa, cucumber, tomato, onion and parsley.",
+            "Whisk olive oil, lemon, cumin, salt and pepper.",
+            "Toss and chill 15 minutes before serving."
+          ],
+          "prepNotes": "Soak dry chickpeas 8 to 12 hours and cook until tender, or rinse canned chickpeas."
+        },
+        {
+          "title": "Red Lentil Vegetable Soup",
+          "ingredients": [
+            "3/4 cup red lentils (masoor)",
+            "1 carrot diced",
+            "1 celery stalk diced",
+            "1 small onion chopped",
+            "2 garlic cloves minced",
+            "1 can diced tomatoes (low sodium)",
+            "1 tbsp olive oil",
+            "1/2 tsp turmeric, 1/2 tsp cumin",
+            "4 cups low sodium vegetable broth",
+            "Lemon wedges to serve"
+          ],
+          "steps": [
+            "Rinse lentils well.",
+            "Saute onion, carrot, celery and garlic in olive oil 3 to 4 minutes.",
+            "Add spices, tomatoes, broth and lentils. Simmer 15 to 20 minutes until lentils are soft.",
+            "Finish with lemon juice and serve."
+          ],
+          "prepNotes": "Rinse lentils until water runs clear to reduce foam."
+        },
+        {
+          "title": "Grilled Salmon with Farro and Greens",
+          "ingredients": [
+            "2 salmon fillets (about 120 g each)",
+            "3/4 cup dry farro (or brown rice)",
+            "2 cups kale or spinach",
+            "1 tbsp olive oil",
+            "Lemon, pepper, pinch salt"
+          ],
+          "steps": [
+            "Cook farro in salted water until tender; drain.",
+            "Season salmon with lemon, pepper and a pinch of salt.",
+            "Grill or pan sear salmon 3 to 4 minutes per side.",
+            "Wilt greens with olive oil. Serve salmon with farro and greens."
+          ],
+          "prepNotes": "Thaw salmon in the refrigerator overnight if frozen."
+        },
+        {
+          "title": "Black Bean Brown Rice Bowl",
+          "ingredients": [
+            "1 cup cooked black beans (low sodium) or 1/2 cup dry soaked overnight",
+            "1 cup cooked brown rice",
+            "1/2 cup corn kernels",
+            "1 bell pepper diced",
+            "1 tomato diced",
+            "1/2 avocado sliced",
+            "1 tbsp olive oil",
+            "Lime juice, cumin, chili powder, cilantro"
+          ],
+          "steps": [
+            "Warm beans with cumin and chili powder.",
+            "Assemble bowl with rice, beans, corn, pepper, tomato and avocado.",
+            "Drizzle olive oil and lime, top with cilantro."
+          ],
+          "prepNotes": "Soak dry beans 8 to 12 hours and cook until tender, or rinse canned beans."
+        },
+        {
+          "title": "Hummus Veggie Whole Wheat Wrap",
+          "ingredients": [
+            "2 whole wheat tortillas",
+            "1/2 cup hummus",
+            "1/2 cucumber sliced",
+            "1 tomato sliced",
+            "1 small carrot grated",
+            "2 lettuce leaves",
+            "1 tsp olive oil (optional)"
+          ],
+          "steps": [
+            "Spread hummus on tortillas.",
+            "Layer cucumber, tomato, carrot and lettuce.",
+            "Drizzle a little olive oil if desired and roll up."
+          ],
           "prepNotes": ""
         }
       ],
       "Dinner": [
         {
-          "title": "Pasta Marinara",
-          "ingredients": ["200 g pasta", "1 cup tomato sauce"],
-          "steps": ["Boil pasta", "Heat sauce", "Mix and serve"],
+          "title": "Baked Mackerel with Roasted Vegetables and Barley",
+          "ingredients": [
+            "2 mackerel fillets",
+            "1 cup mixed vegetables (broccoli, carrots, zucchini)",
+            "1 tbsp olive oil",
+            "1 cup cooked barley",
+            "Lemon, pepper, herbs"
+          ],
+          "steps": [
+            "Toss vegetables with half the olive oil, roast at 425 F (220 C) for 15 to 20 minutes.",
+            "Season mackerel with lemon, pepper and herbs, bake 8 to 10 minutes until flaky.",
+            "Serve with cooked barley."
+          ],
+          "prepNotes": "Thaw fish if frozen. Soak barley 1 hour to reduce cook time (optional)."
+        },
+        {
+          "title": "Tofu Broccoli Stir Fry with Brown Rice",
+          "ingredients": [
+            "400 g firm tofu",
+            "2 cups broccoli florets",
+            "1 red bell pepper sliced",
+            "2 garlic cloves, 1 tsp grated ginger",
+            "1 tbsp canola or olive oil",
+            "2 tbsp low sodium soy sauce",
+            "1 tsp sesame seeds",
+            "2 cups cooked brown rice"
+          ],
+          "steps": [
+            "Press tofu and cut into cubes.",
+            "Stir fry tofu until lightly browned; set aside.",
+            "Stir fry broccoli, pepper, garlic and ginger 3 to 4 minutes.",
+            "Return tofu, add soy sauce, toss and serve over brown rice."
+          ],
+          "prepNotes": "Press tofu 15 to 20 minutes to remove moisture. Start rice ahead."
+        },
+        {
+          "title": "Whole Wheat Pasta Primavera",
+          "ingredients": [
+            "200 g whole wheat pasta",
+            "1 zucchini sliced",
+            "1 cup cherry tomatoes halved",
+            "1 cup broccoli florets",
+            "2 garlic cloves minced",
+            "1 1/2 tbsp olive oil",
+            "Basil, pepper, pinch salt"
+          ],
+          "steps": [
+            "Cook pasta until al dente.",
+            "Saute garlic and vegetables in olive oil 4 to 5 minutes.",
+            "Toss with pasta, basil, pepper and a pinch of salt."
+          ],
           "prepNotes": ""
+        },
+        {
+          "title": "Chickpea and Spinach Stew",
+          "ingredients": [
+            "1 1/2 cups cooked chickpeas (or 3/4 cup dry soaked overnight)",
+            "2 cups spinach",
+            "1 onion chopped",
+            "2 garlic cloves minced",
+            "1 can diced tomatoes",
+            "1 tbsp olive oil",
+            "Smoked paprika, cumin, pepper"
+          ],
+          "steps": [
+            "Saute onion and garlic in olive oil.",
+            "Add tomatoes, spices and chickpeas; simmer 12 to 15 minutes.",
+            "Stir in spinach to wilt and serve."
+          ],
+          "prepNotes": "Soak dry chickpeas 8 to 12 hours."
+        },
+        {
+          "title": "Baked Cod with Warm Lentil Salad",
+          "ingredients": [
+            "2 cod fillets",
+            "3/4 cup green or brown lentils",
+            "1 carrot diced",
+            "1 celery stalk diced",
+            "1 small onion chopped",
+            "1 tbsp olive oil",
+            "Lemon, pepper, parsley"
+          ],
+          "steps": [
+            "Simmer lentils with carrot, celery and onion until tender; drain and toss with olive oil and lemon.",
+            "Season cod with pepper and lemon; bake at 400 F (205 C) for 10 to 12 minutes.",
+            "Serve fish over warm lentils with parsley."
+          ],
+          "prepNotes": "Rinse lentils. Soak 30 minutes to reduce cook time (optional). Thaw fish if frozen."
         }
       ]
     },
     "northIndian": {
       "Breakfast": [
         {
-          "title": "Poha",
-          "ingredients": ["2 cup poha", "1 onion", "1 potato", "spices", "peanuts"],
-          "steps": ["Rinse poha", "Temper spices", "Saute onions/potatoes", "Mix poha & peanuts"],
+          "title": "Moong Dal Chilla with Veg Filling",
+          "ingredients": [
+            "1 cup split yellow moong dal",
+            "1 small onion finely chopped",
+            "1 tomato finely chopped",
+            "1 green chili chopped",
+            "1/2 tsp cumin, salt to taste",
+            "1 tbsp chopped coriander",
+            "1 to 2 tsp oil for cooking"
+          ],
+          "steps": [
+            "Soak moong dal and grind into a smooth batter with cumin and salt.",
+            "Spread a ladle on a hot nonstick pan.",
+            "Top with onion, tomato and chili, drizzle a few drops of oil, cook both sides until golden."
+          ],
+          "prepNotes": "Soak moong dal 2 to 4 hours (or overnight) before grinding."
+        },
+        {
+          "title": "Vegetable Dalia (Broken Wheat Upma)",
+          "ingredients": [
+            "3/4 cup dalia (broken wheat)",
+            "1 small onion chopped",
+            "1/2 cup mixed vegetables (carrot, beans, peas)",
+            "1 tsp mustard seeds, 6 to 8 curry leaves",
+            "1 tsp oil",
+            "Salt, lemon to finish"
+          ],
+          "steps": [
+            "Dry roast dalia 3 to 4 minutes.",
+            "Heat oil, splutter mustard and curry leaves, saute onion and vegetables.",
+            "Add dalia and 2 cups water, salt; cook covered until fluffy.",
+            "Finish with lemon."
+          ],
+          "prepNotes": "Rinse dalia. Soak 10 minutes to reduce cook time (optional)."
+        },
+        {
+          "title": "Oats Vegetable Cheela",
+          "ingredients": [
+            "1 cup rolled oats powdered",
+            "1/4 cup low fat curd or water to make batter",
+            "1/2 cup mixed grated vegetables (carrot, zucchini, capsicum)",
+            "1/2 tsp cumin, pinch turmeric, salt",
+            "1 to 2 tsp oil for cooking"
+          ],
+          "steps": [
+            "Mix oats powder, curd or water and spices to a pourable batter.",
+            "Stir in grated vegetables.",
+            "Cook thin cheelas on a hot pan with a few drops of oil."
+          ],
+          "prepNotes": "Rest batter 10 minutes for better binding."
+        },
+        {
+          "title": "Sprouted Moong Salad",
+          "ingredients": [
+            "1 1/2 cups sprouted moong",
+            "1/2 cucumber diced",
+            "1 tomato diced",
+            "1/4 onion finely chopped",
+            "Lemon juice, chaat masala (low sodium), pepper",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Lightly steam sprouts 2 to 3 minutes (optional).",
+            "Combine all ingredients and toss with lemon and spices."
+          ],
+          "prepNotes": "Sprout moong 24 to 36 hours: soak 8 hours, drain and keep moist until sprouted."
+        },
+        {
+          "title": "Poha with Peas and Peanuts (Low Oil)",
+          "ingredients": [
+            "2 cups thick poha",
+            "1 small onion chopped",
+            "1/2 cup green peas",
+            "1 green chili, curry leaves",
+            "1 tsp mustard seeds, 1 tbsp peanuts",
+            "1 to 2 tsp oil",
+            "Turmeric, salt, lemon"
+          ],
+          "steps": [
+            "Rinse poha and rest 10 minutes.",
+            "Heat oil, splutter mustard, add peanuts, chili, curry leaves and onion; saute.",
+            "Add peas, turmeric, poha and salt; toss gently and finish with lemon."
+          ],
           "prepNotes": "Rinse poha 10 minutes before cooking."
         }
       ],
       "Lunch": [
         {
-          "title": "Chole (Chickpea Curry)",
-          "ingredients": ["2 cup chana (chickpeas)", "onion", "tomato", "spices"],
-          "steps": ["Pressure cook chana", "Make masala", "Combine & simmer"],
-          "prepNotes": "Soak chana for 8–12 hours; pressure cook 25–30 min."
+          "title": "Chana Masala (Low Oil)",
+          "ingredients": [
+            "1 cup dry chickpeas soaked",
+            "1 onion chopped",
+            "2 tomatoes pureed",
+            "1 tsp ginger garlic paste",
+            "1 tsp chana masala powder",
+            "1/2 tsp turmeric, 1/2 tsp cumin",
+            "1 tbsp oil",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Pressure cook soaked chickpeas until tender.",
+            "Saute onion in oil, add ginger garlic, spices and tomato puree; cook until thick.",
+            "Add chickpeas and simmer 10 minutes; garnish with coriander."
+          ],
+          "prepNotes": "Soak chickpeas 8 to 12 hours; pressure cook until soft."
+        },
+        {
+          "title": "Masoor Dal Tadka with Spinach",
+          "ingredients": [
+            "3/4 cup red masoor dal",
+            "2 cups spinach chopped",
+            "1 tomato chopped",
+            "1 small onion chopped",
+            "1 tsp oil",
+            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
+            "Lemon to finish"
+          ],
+          "steps": [
+            "Rinse dal, add water, turmeric, onion and tomato; simmer until dal is soft.",
+            "Add spinach to wilt.",
+            "Heat oil, splutter cumin and pour over dal; finish with lemon."
+          ],
+          "prepNotes": "Rinse dal thoroughly."
+        },
+        {
+          "title": "Rajma Masala (Low Oil)",
+          "ingredients": [
+            "1 cup dry rajma soaked",
+            "1 onion chopped",
+            "2 tomatoes pureed",
+            "1 tsp ginger garlic paste",
+            "1 tsp rajma masala powder",
+            "1/2 tsp turmeric, 1/2 tsp cumin",
+            "1 tbsp oil",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Pressure cook soaked rajma until tender.",
+            "Saute onion in oil; add ginger garlic, spices and tomato puree; cook to a thick masala.",
+            "Add rajma and simmer 12 to 15 minutes; garnish."
+          ],
+          "prepNotes": "Soak rajma 8 to 12 hours; pressure cook until soft."
+        },
+        {
+          "title": "Grilled Tandoori Fish with Brown Rice and Kachumber",
+          "ingredients": [
+            "2 firm fish fillets (surmai, cod or salmon)",
+            "1/2 cup low fat curd",
+            "1 tsp tandoori masala",
+            "1/2 tsp turmeric, 1/2 tsp cumin",
+            "1 tsp lemon juice, salt to taste",
+            "2 cups cooked brown rice",
+            "Kachumber: cucumber, tomato, onion, lemon"
+          ],
+          "steps": [
+            "Mix curd, spices, lemon and salt; coat fish and marinate.",
+            "Grill or bake fish until cooked through.",
+            "Serve with brown rice and kachumber salad."
+          ],
+          "prepNotes": "Marinate fish 30 to 60 minutes. Thaw fish if frozen."
+        },
+        {
+          "title": "Mixed Vegetable Tofu Stir Fry with Chapati",
+          "ingredients": [
+            "200 g firm tofu cubed",
+            "1 cup cauliflower florets",
+            "1 cup bell peppers sliced",
+            "1 small onion sliced",
+            "1 tsp ginger garlic paste",
+            "1 tbsp oil",
+            "Garam masala, turmeric, salt, pepper",
+            "2 whole wheat chapatis"
+          ],
+          "steps": [
+            "Press tofu and cut into cubes.",
+            "Stir fry onion, cauliflower and peppers with ginger garlic and spices.",
+            "Add tofu and toss gently. Serve with chapatis."
+          ],
+          "prepNotes": "Press tofu 15 to 20 minutes. Prepare chapati dough ahead if needed."
         }
       ],
       "Dinner": [
         {
-          "title": "Rajma",
-          "ingredients": ["2 cup rajma (kidney beans)", "onion", "tomato", "spices"],
-          "steps": ["Pressure cook rajma", "Make masala", "Combine & simmer"],
-          "prepNotes": "Soak rajma 8–12 hours; pressure cook 25–30 min."
+          "title": "Lauki Chana Dal (Bottle Gourd with Bengal Gram)",
+          "ingredients": [
+            "1 cup chana dal soaked",
+            "2 cups lauki diced",
+            "1 tomato chopped",
+            "1 small onion chopped",
+            "1 tsp oil",
+            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Soak chana dal and pressure cook until half done.",
+            "Saute cumin and onion in oil, add tomato and turmeric; cook briefly.",
+            "Add lauki and dal; pressure cook until both are tender. Garnish."
+          ],
+          "prepNotes": "Soak chana dal 30 to 60 minutes for even cooking."
+        },
+        {
+          "title": "Baingan Bharta (Low Oil)",
+          "ingredients": [
+            "2 large eggplants",
+            "1 onion chopped",
+            "2 tomatoes chopped",
+            "1 tsp ginger garlic paste",
+            "1 tsp oil",
+            "1/2 tsp cumin seeds, chili to taste",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Roast eggplants on flame or in oven until charred and soft; cool and peel.",
+            "Saute cumin, onion and ginger garlic in minimal oil; add tomatoes and cook down.",
+            "Mash in eggplant, cook 5 minutes and garnish."
+          ],
+          "prepNotes": "Roast eggplants 30 to 40 minutes and cool before peeling."
+        },
+        {
+          "title": "Methi Moong Dal",
+          "ingredients": [
+            "3/4 cup split moong dal",
+            "2 cups methi (fenugreek) leaves chopped",
+            "1 tomato chopped",
+            "1 small onion chopped",
+            "1 tsp oil",
+            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
+            "Lemon to finish"
+          ],
+          "steps": [
+            "Soak moong dal 30 minutes, then simmer with turmeric until almost tender.",
+            "Saute cumin, onion and tomato in oil; add methi and wilt.",
+            "Combine with dal and simmer briefly. Finish with lemon."
+          ],
+          "prepNotes": "Soak moong dal 30 minutes."
+        },
+        {
+          "title": "Bhindi Stir Fry (Okra) Low Oil",
+          "ingredients": [
+            "400 g okra trimmed and sliced",
+            "1 small onion sliced",
+            "1 tsp oil",
+            "1/2 tsp turmeric, 1/2 tsp coriander powder",
+            "Salt, pepper, lemon"
+          ],
+          "steps": [
+            "Pat dry okra to reduce slime.",
+            "Saute onions in a little oil, add okra and cook on medium without covering until tender.",
+            "Season with spices, salt and a squeeze of lemon."
+          ],
+          "prepNotes": "Wash and thoroughly dry okra before slicing."
+        },
+        {
+          "title": "Tomato Fish Curry (Light)",
+          "ingredients": [
+            "2 fish fillets (cod, rohu or salmon)",
+            "2 tomatoes pureed",
+            "1 small onion finely chopped",
+            "1 tsp ginger garlic paste",
+            "1 tsp oil",
+            "1/2 tsp turmeric, 1/2 tsp coriander, chili to taste",
+            "Fresh coriander"
+          ],
+          "steps": [
+            "Saute onion in oil; add ginger garlic and spices; cook briefly.",
+            "Add tomato puree and simmer until thick.",
+            "Slide in fish pieces and poach gently until cooked. Garnish."
+          ],
+          "prepNotes": "Thaw fish in refrigerator overnight if frozen."
         }
       ]
     }
