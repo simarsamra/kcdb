@@ -1,26 +1,23 @@
-// Minimal recipes-only app with cuisines and "prep for upcoming" modal
+// Recipes-only app, tablet-optimized, robust modal close
 
 const KEY_CUISINE = 'kd_cuisine';
 const KEY_MEAL = 'kd_meal';
-
 const MEALS = ['Breakfast','Lunch','Dinner'];
 
 // DOM
 const clockEl = document.getElementById('clock');
-
 const cuisineTabsEl = document.getElementById('cuisineTabs');
 const mealTabsEl = document.getElementById('mealTabs');
-
 const recipeTitleEl = document.getElementById('recipeTitle');
 const dayInfoEl = document.getElementById('dayInfo');
 const ingredientsListEl = document.getElementById('ingredientsList');
 const stepsListEl = document.getElementById('stepsList');
 const currentPrepNoteEl = document.getElementById('currentPrepNote');
-
 const prepNextBtn = document.getElementById('prepNextBtn');
 const prepModal = document.getElementById('prepModal');
 const prepContent = document.getElementById('prepContent');
 const closePrepModal = document.getElementById('closePrepModal');
+const closePrepModalX = document.getElementById('closePrepModalX');
 
 // State
 let data = null;
@@ -65,7 +62,7 @@ function renderCuisineTabs() {
     const b = document.createElement('button');
     b.className = 'tab-btn' + (c === cuisine ? ' active' : '');
     b.textContent = toTitle(c);
-    b.setAttribute('data-cuisine', c);
+    b.type = 'button';
     b.addEventListener('click', () => {
       cuisine = c;
       localStorage.setItem(KEY_CUISINE, cuisine);
@@ -83,7 +80,7 @@ function renderMealTabs() {
     const b = document.createElement('button');
     b.className = 'tab-btn' + (m === meal ? ' active' : '');
     b.textContent = m;
-    b.setAttribute('data-meal', m);
+    b.type = 'button';
     b.addEventListener('click', () => {
       meal = m;
       localStorage.setItem(KEY_MEAL, meal);
@@ -136,10 +133,21 @@ function renderRecipe() {
 function upcomingMealsFrom(currentMeal) {
   const idx = MEALS.indexOf(currentMeal);
   const order = [];
-  for (let i = idx + 1; i < MEALS.length; i++) order.push({meal: MEALS[i], offset: 0});
-  // Next day breakfast as well
-  order.push({meal: MEALS[0], offset: 1});
+  for (let i = idx + 1; i < MEALS.length; i++) order.push({meal: MEALS[i], offset: 0}); // later today
+  order.push({meal: MEALS[0], offset: 1}); // tomorrow breakfast
   return order;
+}
+
+// Modal helpers (robust close)
+function showModal() {
+  prepModal.classList.remove('hidden');
+  document.body.classList.add('no-scroll');
+  // move focus to close button for accessibility
+  setTimeout(() => closePrepModal?.focus(), 0);
+}
+function hideModal() {
+  prepModal.classList.add('hidden');
+  document.body.classList.remove('no-scroll');
 }
 
 function openPrepModal() {
@@ -165,7 +173,7 @@ function openPrepModal() {
     ).join('');
   }
 
-  prepModal.classList.remove('hidden');
+  showModal();
 }
 
 function toTitle(s) {
@@ -173,10 +181,16 @@ function toTitle(s) {
 }
 
 // Events
-prepNextBtn.addEventListener('click', openPrepModal);
-closePrepModal.addEventListener('click', () => prepModal.classList.add('hidden'));
-prepModal.addEventListener('click', (e) => {
-  if (e.target === prepModal) prepModal.classList.add('hidden');
+prepNextBtn?.addEventListener('click', openPrepModal);
+closePrepModal?.addEventListener('click', hideModal);
+closePrepModalX?.addEventListener('click', hideModal);
+// Close when tapping outside the modal body
+prepModal?.addEventListener('click', (e) => {
+  if (!e.target.closest('.modal-body')) hideModal();
+});
+// Close on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !prepModal.classList.contains('hidden')) hideModal();
 });
 
 // Init

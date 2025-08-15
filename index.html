@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111" />
   <title>Kitchen Dashboard - Recipes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -17,16 +18,16 @@
 
     <main class="container">
       <!-- Cuisine selector -->
-      <div id="cuisineTabs" class="tabs card"></div>
+      <div id="cuisineTabs" class="tabs card" aria-label="Cuisine selector"></div>
 
       <!-- Meal selector -->
-      <div id="mealTabs" class="tabs card"></div>
+      <div id="mealTabs" class="tabs card" aria-label="Meal selector"></div>
 
       <!-- Recipe card -->
       <section class="card" id="recipeCard">
         <div class="recipe-header">
           <h2 id="recipeTitle">Loading…</h2>
-          <button id="prepNextBtn" class="btn">Prep for upcoming recipes</button>
+          <button id="prepNextBtn" class="btn" type="button" aria-haspopup="dialog" aria-controls="prepModal">Prep for upcoming recipes</button>
         </div>
         <div class="meta" id="dayInfo"></div>
 
@@ -51,12 +52,15 @@
   </div>
 
   <!-- Prep modal -->
-  <div id="prepModal" class="modal hidden">
+  <div id="prepModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="prepModalTitle">
     <div class="modal-body">
-      <h3>Upcoming Prep</h3>
+      <div class="modal-head">
+        <h3 id="prepModalTitle">Upcoming Prep</h3>
+        <button id="closePrepModalX" class="icon-btn" type="button" aria-label="Close">✕</button>
+      </div>
       <div id="prepContent"></div>
       <div class="actions">
-        <button id="closePrepModal" class="btn">Close</button>
+        <button id="closePrepModal" class="btn secondary" type="button">Close</button>
       </div>
     </div>
   </div>
