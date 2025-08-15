@@ -1,4 +1,4 @@
-// Recipes-only app, tablet-optimized, robust modal close
+// Recipes-only app, tablet-optimized, robust modals + weekly grocery with quantities
 
 const KEY_CUISINE = 'kd_cuisine';
 const KEY_MEAL = 'kd_meal';
@@ -13,11 +13,14 @@ const dayInfoEl = document.getElementById('dayInfo');
 const ingredientsListEl = document.getElementById('ingredientsList');
 const stepsListEl = document.getElementById('stepsList');
 const currentPrepNoteEl = document.getElementById('currentPrepNote');
+
 const prepNextBtn = document.getElementById('prepNextBtn');
 const prepModal = document.getElementById('prepModal');
 const prepContent = document.getElementById('prepContent');
 const closePrepModal = document.getElementById('closePrepModal');
 const closePrepModalX = document.getElementById('closePrepModalX');
+
+// Grocery UI
 const groceryBtn = document.getElementById('groceryBtn');
 const groceryModal = document.getElementById('groceryModal');
 const groceryContent = document.getElementById('groceryContent');
@@ -113,17 +116,17 @@ function renderRecipe() {
     return;
   }
 
-  recipeTitleEl.textContent = r.title;
+  recipeTitleEl.textContent = r.title || 'Recipe';
 
   ingredientsListEl.innerHTML = '';
-  r.ingredients.forEach(it => {
+  (r.ingredients || []).forEach(it => {
     const li = document.createElement('li');
     li.textContent = it;
     ingredientsListEl.appendChild(li);
   });
 
   stepsListEl.innerHTML = '';
-  r.steps.forEach(st => {
+  (r.steps || []).forEach(st => {
     const li = document.createElement('li');
     li.textContent = st;
     stepsListEl.appendChild(li);
@@ -146,14 +149,13 @@ function upcomingMealsFrom(currentMeal) {
   return order;
 }
 
-// Modal helpers (robust close)
-function showModal() {
+// Prep modal helpers
+function showPrepModal() {
   prepModal.classList.remove('hidden');
   document.body.classList.add('no-scroll');
-  // move focus to close button for accessibility
   setTimeout(() => closePrepModal?.focus(), 0);
 }
-function hideModal() {
+function hidePrepModal() {
   prepModal.classList.add('hidden');
   document.body.classList.remove('no-scroll');
 }
@@ -166,7 +168,7 @@ function openPrepModal() {
     const r = pickRecipe(cuisine, u.meal, u.offset);
     if (r && r.prepNotes && r.prepNotes.trim()) {
       const when = u.offset === 0 ? 'Today' : 'Tomorrow';
-      items.push({meal: u.meal, when, title: r.title, note: r.prepNotes.trim()});
+      items.push({meal: u.meal, when, title: r.title || '', note: r.prepNotes.trim()});
     }
   }
 
@@ -181,61 +183,117 @@ function openPrepModal() {
     ).join('');
   }
 
-  showModal();
+  showPrepModal();
 }
 
 function toTitle(s) {
-  return s.replace(/[-_]/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+  return String(s || '').replace(/[-_]/g,' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-// Helpers for weekly list
+/* ---------- Weekly Grocery (all meals, next 7 days, with quantities) ---------- */
+
+const UNIT_ALIASES = {
+  cup:'cup', cups:'cup',
+  tbsp:'tbsp', tablespoon:'tbsp', tablespoons:'tbsp', tbsps:'tbsp',
+  tsp:'tsp', teaspoon:'tsp', teaspoons:'tsp', tsps:'tsp',
+  g:'g', gram:'g', grams:'g',
+  kg:'kg', kgs:'kg',
+  ml:'ml', mls:'ml',
+  l:'l', liter:'l', liters:'l', litres:'l',
+  oz:'oz', ounce:'oz', ounces:'oz',
+  lb:'lb', lbs:'lb', pound:'lb', pounds:'lb',
+  clove:'clove', cloves:'clove',
+  slice:'slice', slices:'slice',
+  can:'can', cans:'can',
+  piece:'piece', pieces:'piece'
+};
+
+const VULGAR = { '¼':'1/4','½':'1/2','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8' };
+
+function replaceVulgar(s) {
+  return s.replace(/[¼½¾⅓⅔⅛⅜⅝⅞]/g, m => VULGAR[m] || m);
+}
+
+function fracToNum(fr) {
+  const m = fr.match(/^(\d+)\s+(\d+)\/(\d+)$/); // mixed "1 1/2"
+  if (m) return parseFloat(m[1]) + (parseFloat(m[2]) / parseFloat(m[3]));
+  const m2 = fr.match(/^(\d+)\/(\d+)$/); // "1/2"
+  if (m2) return parseFloat(m2[1]) / parseFloat(m2[2]);
+  return Number.isFinite(+fr) ? +fr : null;
+}
+
+function parseIngredient(raw) {
+  if (!raw) return { name: '', unit: '', qty: null };
+  let s = replaceVulgar(String(raw)).toLowerCase().trim();
+  s = s.replace(/\([^)]*\)/g, ' ').replace(/\s{2,}/g, ' ').trim();
+
+  const tokens = s.split(/\s+/);
+  let i = 0, qty = null, unit = '';
+
+  const range = tokens[i]?.match(/^(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)/);
+  if (range) {
+    qty = parseFloat(range[1]); // take the lower end
+    i++;
+  } else if (/^\d+(?:\.\d+)?$/.test(tokens[i])) {
+    qty = parseFloat(tokens[i]); i++;
+    if (/^\d+\/\d+$/.test(tokens[i])) { qty += fracToNum(tokens[i]); i++; }
+  } else if (/^\d+\/\d+$/.test(tokens[i])) {
+    qty = fracToNum(tokens[i]); i++;
+  } else if (tokens[i] === 'a' || tokens[i] === 'an') {
+    qty = 1; i++;
+  }
+
+  const maybeUnit = UNIT_ALIASES[tokens[i]] || '';
+  if (maybeUnit) { unit = maybeUnit; i++; }
+
+  if (tokens[i] === 'of') i++;
+  const name = tokens.slice(i).join(' ').trim();
+
+  // If still no name, fall back to raw
+  return {
+    name: name || s,
+    unit: unit || (qty != null ? '' : ''), // keep empty if unknown
+    qty: qty
+  };
+}
+
 function weekKey() { return Math.floor(getDayNumber(0) / 7); }
 
-function normalizeIngredient(s) {
-  if (!s) return '';
-  let t = String(s).toLowerCase().trim();
-
-  // drop parentheses content
-  t = t.replace(/\([^)]*\)/g, ' ').trim();
-
-  // remove leading quantities and common units
-  t = t.replace(
-    /^(?:\d+[\d\/\.\-\s]*\s*)?(?:cups?|tbsps?|tablespoons?|tsps?|teaspoons?|g|kg|grams?|ml|l|liters?|oz|ounces?|pounds?|lbs?|cloves?|slices?|cans?|pieces?|tbsp|tsp)\b\s*/i,
-    ''
-  );
-
-  // remove leading simple counts (e.g., "2 ", "a ", "an ")
-  t = t.replace(/^(?:\d+|a|an)\s+/, '');
-
-  // clean punctuation and extra spaces
-  t = t.replace(/[.,;:]+$/g, '').replace(/\s{2,}/g, ' ').trim();
-
-  // prefer ingredient name up to " - " or " — "
-  t = t.split(' - ')[0].split(' — ')[0].trim();
-
-  return t;
-}
-
 function buildWeeklyGrocery(selectedCuisine) {
-  const map = new Map(); // key -> {label, key}
+  const map = new Map(); // key: name|unit -> {name, unit, qty, count}
   for (let offset = 0; offset < 7; offset++) {
     for (const m of MEALS) {
       const r = pickRecipe(selectedCuisine, m, offset);
       if (!r || !Array.isArray(r.ingredients)) continue;
       for (const raw of r.ingredients) {
-        if (!raw) continue;
-        const key = normalizeIngredient(raw);
-        if (!key) continue;
-        if (!map.has(key)) {
-          // label: capitalize first letter
-          const label = key.charAt(0).toUpperCase() + key.slice(1);
-          map.set(key, { key, label });
+        const { name, unit, qty } = parseIngredient(raw);
+        if (!name) continue;
+        const key = `${name}|${unit}`;
+        if (!map.has(key)) map.set(key, { name, unit, qty: 0, count: 0, anyQty: false });
+        const item = map.get(key);
+        if (qty != null && Number.isFinite(qty)) {
+          item.qty += qty;
+          item.anyQty = true;
+        } else {
+          item.count += 1;
         }
       }
     }
   }
-  // sort alphabetically
-  return Array.from(map.values()).sort((a, b) => a.label.localeCompare(b.label));
+  // If no numeric qty seen for an item, fall back to count
+  const list = [];
+  for (const v of map.values()) {
+    list.push(v);
+  }
+  // sort by name
+  list.sort((a, b) => a.name.localeCompare(b.name));
+  return list;
+}
+
+function formatQty(q) {
+  if (!Number.isFinite(q) || q === 0) return '';
+  if (Math.abs(q - Math.round(q)) < 0.01) return String(Math.round(q));
+  return q.toFixed(2).replace(/\.00$/, '');
 }
 
 function storageCheckedKey() {
@@ -265,16 +323,22 @@ function renderGroceryList() {
   }
 
   groceryContent.innerHTML = items.map(it => {
-    const id = `g_${it.key.replace(/\s+/g,'_')}`;
-    const isChecked = checked.has(it.key);
+    const baseKey = `${it.name}|${it.unit}`;
+    const id = `g_${baseKey.replace(/[^\w]+/g,'_')}`;
+    const isChecked = checked.has(baseKey);
+    const qtyPart = it.anyQty ? formatQty(it.qty) : (it.count ? String(it.count) : '');
+    const unitPart = it.unit ? ` ${it.unit}` : '';
+    const label = `${qtyPart}${qtyPart ? unitPart + ' ' : ''}${capitalize(it.name)}`;
     return `
       <li>
-        <input type="checkbox" id="${id}" data-key="${it.key}" ${isChecked ? 'checked' : ''}/>
-        <label for="${id}">${it.label}</label>
+        <input type="checkbox" id="${id}" data-key="${baseKey}" ${isChecked ? 'checked' : ''}/>
+        <label for="${id}">${label || capitalize(it.name)}</label>
       </li>
     `;
   }).join('');
 }
+
+function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function showModalEl(el) {
   el.classList.remove('hidden');
@@ -290,31 +354,19 @@ function openGroceryModal() {
   showModalEl(groceryModal);
 }
 
-// Events
+/* ---------- Events ---------- */
 prepNextBtn?.addEventListener('click', openPrepModal);
-closePrepModal?.addEventListener('click', hideModal);
-closePrepModalX?.addEventListener('click', hideModal);
-// Close when tapping outside the modal body
-prepModal?.addEventListener('click', (e) => {
-  if (!e.target.closest('.modal-body')) hideModal();
-});
-// Close on Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !prepModal.classList.contains('hidden')) hideModal();
-});
+closePrepModal?.addEventListener('click', hidePrepModal);
+closePrepModalX?.addEventListener('click', hidePrepModal);
+prepModal?.addEventListener('click', (e) => { if (!e.target.closest('.modal-body')) hidePrepModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !prepModal.classList.contains('hidden')) hidePrepModal(); });
 
-// Events: grocery modal
 groceryBtn?.addEventListener('click', openGroceryModal);
 closeGroceryModal?.addEventListener('click', () => hideModalEl(groceryModal));
 closeGroceryModalX?.addEventListener('click', () => hideModalEl(groceryModal));
-groceryModal?.addEventListener('click', (e) => {
-  if (!e.target.closest('.modal-body')) hideModalEl(groceryModal);
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !groceryModal.classList.contains('hidden')) hideModalEl(groceryModal);
-});
+groceryModal?.addEventListener('click', (e) => { if (!e.target.closest('.modal-body')) hideModalEl(groceryModal); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !groceryModal.classList.contains('hidden')) hideModalEl(groceryModal); });
 
-// Checkbox change + persistence
 groceryContent?.addEventListener('change', (e) => {
   const cb = e.target;
   if (cb && cb.matches('input[type="checkbox"][data-key]')) {
@@ -325,26 +377,22 @@ groceryContent?.addEventListener('change', (e) => {
   }
 });
 
-// Clear checked
 clearCheckedBtn?.addEventListener('click', () => {
-  const set = new Set(); // empty
+  const set = new Set();
   saveCheckedSet(set);
-  // uncheck all
   groceryContent.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
 });
 
-// Copy list
 copyGroceryBtn?.addEventListener('click', async () => {
   const lines = Array.from(groceryContent.querySelectorAll('li')).map(li => {
     const cb = li.querySelector('input[type="checkbox"]');
     const label = li.querySelector('label')?.textContent ?? '';
     return `${cb?.checked ? '[x]' : '[ ]'} ${label}`;
   });
-  try { await navigator.clipboard.writeText(lines.join('\n')); }
-  catch { /* ignore */ }
+  try { await navigator.clipboard.writeText(lines.join('\n')); } catch {}
 });
 
-// Init
+/* ---------- Init ---------- */
 (async function init() {
   try {
     data = await loadData();

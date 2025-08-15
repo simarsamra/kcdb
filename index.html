@@ -13,6 +13,7 @@
       <h1>Recipes</h1>
       <div class="top-row">
         <div id="clock"></div>
+        <button id="groceryBtn" class="btn secondary" type="button" aria-haspopup="dialog" aria-controls="groceryModal">Weekly grocery list</button>
       </div>
     </header>
 
@@ -27,10 +28,7 @@
       <section class="card" id="recipeCard">
         <div class="recipe-header">
           <h2 id="recipeTitle">Loading…</h2>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <button id="prepNextBtn" class="btn" type="button" aria-haspopup="dialog" aria-controls="prepModal">Prep for upcoming recipes</button>
-            <button id="groceryBtn" class="btn secondary" type="button" aria-haspopup="dialog" aria-controls="groceryModal">Weekly grocery list</button>
-          </div>
+          <button id="prepNextBtn" class="btn" type="button" aria-haspopup="dialog" aria-controls="prepModal">Prep for upcoming recipes</button>
         </div>
         <div class="meta" id="dayInfo"></div>
 
@@ -75,7 +73,7 @@
         <h3 id="groceryModalTitle">Weekly Grocery List</h3>
         <button id="closeGroceryModalX" class="icon-btn" type="button" aria-label="Close">✕</button>
       </div>
-      <div class="meta">Based on next 7 days • Cuisine: <span id="groceryCuisineLabel"></span></div>
+      <div class="meta">Based on next 7 days • All meals • Cuisine: <span id="groceryCuisineLabel"></span></div>
       <ul id="groceryContent" class="checklist"></ul>
       <div class="actions">
         <button id="copyGroceryBtn" class="btn secondary" type="button">Copy</button>
