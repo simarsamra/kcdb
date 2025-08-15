@@ -6,13 +6,13 @@
         {
           "title": "Overnight Oats with Chia, Flax and Berries",
           "ingredients": [
-            "1/2 cup rolled oats",
-            "1/2 cup unsweetened almond milk or low fat milk",
-            "1 tbsp chia seeds",
-            "1 tbsp ground flaxseed",
-            "1/4 cup mixed berries",
-            "1 tsp honey or maple (optional)",
-            "Pinch cinnamon"
+            { "qty": 0.5, "unit": "cup", "name": "rolled oats" },
+            { "qty": 0.5, "unit": "cup", "name": "unsweetened almond milk or low fat milk" },
+            { "qty": 1, "unit": "tbsp", "name": "chia seeds" },
+            { "qty": 1, "unit": "tbsp", "name": "ground flaxseed" },
+            { "qty": 0.25, "unit": "cup", "name": "mixed berries" },
+            { "qty": 1, "unit": "tsp", "name": "honey or maple", "note": "optional" },
+            { "qty": null, "unit": "", "name": "cinnamon", "note": "pinch" }
           ],
           "steps": [
             "Combine oats, milk, chia, flax and cinnamon in a jar.",
@@ -24,12 +24,14 @@
         {
           "title": "Avocado Tomato Whole Grain Toast",
           "ingredients": [
-            "2 slices whole grain bread",
-            "1 ripe avocado",
-            "6 cherry tomatoes halved",
-            "1 tsp extra virgin olive oil",
-            "Lemon juice, black pepper, chili flakes",
-            "1 tsp mixed seeds (pumpkin, sesame) optional"
+            { "qty": 2, "unit": "slice", "name": "whole grain bread" },
+            { "qty": 1, "unit": "", "name": "avocado", "note": "ripe" },
+            { "qty": 6, "unit": "", "name": "cherry tomatoes", "note": "halved" },
+            { "qty": 1, "unit": "tsp", "name": "extra virgin olive oil" },
+            { "qty": null, "unit": "", "name": "lemon juice", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "chili flakes", "note": "to taste" },
+            { "qty": 1, "unit": "tsp", "name": "mixed seeds", "note": "pumpkin, sesame; optional" }
           ],
           "steps": [
             "Toast the bread.",
@@ -42,12 +44,12 @@
         {
           "title": "Greek Yogurt Parfait with Walnuts and Oats",
           "ingredients": [
-            "3/4 cup low fat plain Greek yogurt",
-            "1/4 cup rolled oats",
-            "1 small banana sliced",
-            "1/4 cup berries",
-            "1 tbsp walnuts chopped",
-            "1 tsp honey (optional)"
+            { "qty": 0.75, "unit": "cup", "name": "low fat plain Greek yogurt" },
+            { "qty": 0.25, "unit": "cup", "name": "rolled oats" },
+            { "qty": 1, "unit": "", "name": "banana", "note": "small, sliced" },
+            { "qty": 0.25, "unit": "cup", "name": "berries" },
+            { "qty": 1, "unit": "tbsp", "name": "walnuts", "note": "chopped" },
+            { "qty": 1, "unit": "tsp", "name": "honey", "note": "optional" }
           ],
           "steps": [
             "Layer yogurt, oats and fruit in a bowl or glass.",
@@ -58,12 +60,12 @@
         {
           "title": "Barley Porridge with Apple and Cinnamon",
           "ingredients": [
-            "1/2 cup pearled barley or barley flakes",
-            "1 1/2 cups water or milk blend",
-            "1 small apple diced",
-            "1/2 tsp cinnamon",
-            "1 tbsp raisins (optional)",
-            "1 tbsp chopped almonds or walnuts"
+            { "qty": 0.5, "unit": "cup", "name": "pearled barley or barley flakes" },
+            { "qty": 1.5, "unit": "cup", "name": "water or milk blend" },
+            { "qty": 1, "unit": "", "name": "apple", "note": "small, diced" },
+            { "qty": 0.5, "unit": "tsp", "name": "cinnamon" },
+            { "qty": 1, "unit": "tbsp", "name": "raisins", "note": "optional" },
+            { "qty": 1, "unit": "tbsp", "name": "almonds or walnuts", "note": "chopped" }
           ],
           "steps": [
             "Rinse barley. Add to pot with water or milk and bring to a boil.",
@@ -75,12 +77,12 @@
         {
           "title": "Spinach Flax Smoothie",
           "ingredients": [
-            "1 cup spinach",
-            "1 banana",
-            "1/2 cup frozen berries",
-            "1 tbsp ground flaxseed",
-            "2 tbsp rolled oats",
-            "3/4 to 1 cup unsweetened almond milk"
+            { "qty": 1, "unit": "cup", "name": "spinach" },
+            { "qty": 1, "unit": "", "name": "banana" },
+            { "qty": 0.5, "unit": "cup", "name": "frozen berries" },
+            { "qty": 1, "unit": "tbsp", "name": "ground flaxseed" },
+            { "qty": 2, "unit": "tbsp", "name": "rolled oats" },
+            { "qty": 0.75, "unit": "cup", "name": "unsweetened almond milk", "note": "up to 1 cup" }
           ],
           "steps": [
             "Add all ingredients to a blender.",
@@ -93,15 +95,17 @@
         {
           "title": "Mediterranean Chickpea Quinoa Salad",
           "ingredients": [
-            "1 cup cooked chickpeas (low sodium) or 1/2 cup dry soaked overnight",
-            "1 cup cooked quinoa",
-            "1/2 cucumber diced",
-            "1 tomato diced",
-            "1/4 red onion thinly sliced",
-            "2 tbsp parsley chopped",
-            "1 tbsp extra virgin olive oil",
-            "1 to 2 tbsp lemon juice",
-            "1/2 tsp cumin, salt and pepper to taste"
+            { "qty": 1, "unit": "cup", "name": "cooked chickpeas", "note": "low sodium; or 1/2 cup dry" },
+            { "qty": 1, "unit": "cup", "name": "cooked quinoa" },
+            { "qty": 0.5, "unit": "", "name": "cucumber", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "diced" },
+            { "qty": 0.25, "unit": "", "name": "red onion", "note": "thinly sliced" },
+            { "qty": 2, "unit": "tbsp", "name": "parsley", "note": "chopped" },
+            { "qty": 1, "unit": "tbsp", "name": "extra virgin olive oil" },
+            { "qty": 1.5, "unit": "tbsp", "name": "lemon juice" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" }
           ],
           "steps": [
             "Combine chickpeas, quinoa, cucumber, tomato, onion and parsley.",
@@ -113,16 +117,17 @@
         {
           "title": "Red Lentil Vegetable Soup",
           "ingredients": [
-            "3/4 cup red lentils (masoor)",
-            "1 carrot diced",
-            "1 celery stalk diced",
-            "1 small onion chopped",
-            "2 garlic cloves minced",
-            "1 can diced tomatoes (low sodium)",
-            "1 tbsp olive oil",
-            "1/2 tsp turmeric, 1/2 tsp cumin",
-            "4 cups low sodium vegetable broth",
-            "Lemon wedges to serve"
+            { "qty": 0.75, "unit": "cup", "name": "red lentils (masoor)" },
+            { "qty": 1, "unit": "", "name": "carrot", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "celery stalk", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 2, "unit": "clove", "name": "garlic", "note": "minced" },
+            { "qty": 1, "unit": "can", "name": "diced tomatoes", "note": "low sodium" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": 4, "unit": "cup", "name": "vegetable broth", "note": "low sodium" },
+            { "qty": null, "unit": "", "name": "lemon wedges", "note": "to serve" }
           ],
           "steps": [
             "Rinse lentils well.",
@@ -135,11 +140,13 @@
         {
           "title": "Grilled Salmon with Farro and Greens",
           "ingredients": [
-            "2 salmon fillets (about 120 g each)",
-            "3/4 cup dry farro (or brown rice)",
-            "2 cups kale or spinach",
-            "1 tbsp olive oil",
-            "Lemon, pepper, pinch salt"
+            { "qty": 2, "unit": "fillet", "name": "salmon", "note": "about 120 g each" },
+            { "qty": 0.75, "unit": "cup", "name": "farro", "note": "dry; or use brown rice" },
+            { "qty": 2, "unit": "cup", "name": "kale or spinach" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "salt", "note": "pinch" }
           ],
           "steps": [
             "Cook farro in salted water until tender; drain.",
@@ -152,14 +159,17 @@
         {
           "title": "Black Bean Brown Rice Bowl",
           "ingredients": [
-            "1 cup cooked black beans (low sodium) or 1/2 cup dry soaked overnight",
-            "1 cup cooked brown rice",
-            "1/2 cup corn kernels",
-            "1 bell pepper diced",
-            "1 tomato diced",
-            "1/2 avocado sliced",
-            "1 tbsp olive oil",
-            "Lime juice, cumin, chili powder, cilantro"
+            { "qty": 1, "unit": "cup", "name": "cooked black beans", "note": "low sodium; or 1/2 cup dry" },
+            { "qty": 1, "unit": "cup", "name": "cooked brown rice" },
+            { "qty": 0.5, "unit": "cup", "name": "corn kernels" },
+            { "qty": 1, "unit": "", "name": "bell pepper", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "diced" },
+            { "qty": 0.5, "unit": "", "name": "avocado", "note": "sliced" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": null, "unit": "", "name": "lime juice", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "cumin", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "chili powder", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "cilantro", "note": "to taste" }
           ],
           "steps": [
             "Warm beans with cumin and chili powder.",
@@ -171,13 +181,13 @@
         {
           "title": "Hummus Veggie Whole Wheat Wrap",
           "ingredients": [
-            "2 whole wheat tortillas",
-            "1/2 cup hummus",
-            "1/2 cucumber sliced",
-            "1 tomato sliced",
-            "1 small carrot grated",
-            "2 lettuce leaves",
-            "1 tsp olive oil (optional)"
+            { "qty": 2, "unit": "", "name": "whole wheat tortilla" },
+            { "qty": 0.5, "unit": "cup", "name": "hummus" },
+            { "qty": 0.5, "unit": "", "name": "cucumber", "note": "sliced" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "sliced" },
+            { "qty": 1, "unit": "", "name": "carrot", "note": "small, grated" },
+            { "qty": 2, "unit": "", "name": "lettuce leaves" },
+            { "qty": 1, "unit": "tsp", "name": "olive oil", "note": "optional" }
           ],
           "steps": [
             "Spread hummus on tortillas.",
@@ -191,11 +201,13 @@
         {
           "title": "Baked Mackerel with Roasted Vegetables and Barley",
           "ingredients": [
-            "2 mackerel fillets",
-            "1 cup mixed vegetables (broccoli, carrots, zucchini)",
-            "1 tbsp olive oil",
-            "1 cup cooked barley",
-            "Lemon, pepper, herbs"
+            { "qty": 2, "unit": "fillet", "name": "mackerel" },
+            { "qty": 1, "unit": "cup", "name": "mixed vegetables", "note": "broccoli, carrots, zucchini" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": 1, "unit": "cup", "name": "cooked barley" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "herbs", "note": "to taste" }
           ],
           "steps": [
             "Toss vegetables with half the olive oil, roast at 425 F (220 C) for 15 to 20 minutes.",
@@ -207,14 +219,15 @@
         {
           "title": "Tofu Broccoli Stir Fry with Brown Rice",
           "ingredients": [
-            "400 g firm tofu",
-            "2 cups broccoli florets",
-            "1 red bell pepper sliced",
-            "2 garlic cloves, 1 tsp grated ginger",
-            "1 tbsp canola or olive oil",
-            "2 tbsp low sodium soy sauce",
-            "1 tsp sesame seeds",
-            "2 cups cooked brown rice"
+            { "qty": 400, "unit": "g", "name": "firm tofu" },
+            { "qty": 2, "unit": "cup", "name": "broccoli florets" },
+            { "qty": 1, "unit": "", "name": "red bell pepper", "note": "sliced" },
+            { "qty": 2, "unit": "clove", "name": "garlic", "note": "minced" },
+            { "qty": 1, "unit": "tsp", "name": "ginger", "note": "grated" },
+            { "qty": 1, "unit": "tbsp", "name": "canola or olive oil" },
+            { "qty": 2, "unit": "tbsp", "name": "low sodium soy sauce" },
+            { "qty": 1, "unit": "tsp", "name": "sesame seeds" },
+            { "qty": 2, "unit": "cup", "name": "cooked brown rice" }
           ],
           "steps": [
             "Press tofu and cut into cubes.",
@@ -227,13 +240,15 @@
         {
           "title": "Whole Wheat Pasta Primavera",
           "ingredients": [
-            "200 g whole wheat pasta",
-            "1 zucchini sliced",
-            "1 cup cherry tomatoes halved",
-            "1 cup broccoli florets",
-            "2 garlic cloves minced",
-            "1 1/2 tbsp olive oil",
-            "Basil, pepper, pinch salt"
+            { "qty": 200, "unit": "g", "name": "whole wheat pasta" },
+            { "qty": 1, "unit": "", "name": "zucchini", "note": "sliced" },
+            { "qty": 1, "unit": "cup", "name": "cherry tomatoes", "note": "halved" },
+            { "qty": 1, "unit": "cup", "name": "broccoli florets" },
+            { "qty": 2, "unit": "clove", "name": "garlic", "note": "minced" },
+            { "qty": 1.5, "unit": "tbsp", "name": "olive oil" },
+            { "qty": null, "unit": "", "name": "basil", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "salt", "note": "pinch" }
           ],
           "steps": [
             "Cook pasta until al dente.",
@@ -245,13 +260,15 @@
         {
           "title": "Chickpea and Spinach Stew",
           "ingredients": [
-            "1 1/2 cups cooked chickpeas (or 3/4 cup dry soaked overnight)",
-            "2 cups spinach",
-            "1 onion chopped",
-            "2 garlic cloves minced",
-            "1 can diced tomatoes",
-            "1 tbsp olive oil",
-            "Smoked paprika, cumin, pepper"
+            { "qty": 1.5, "unit": "cup", "name": "cooked chickpeas", "note": "or 3/4 cup dry" },
+            { "qty": 2, "unit": "cup", "name": "spinach" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "chopped" },
+            { "qty": 2, "unit": "clove", "name": "garlic", "note": "minced" },
+            { "qty": 1, "unit": "can", "name": "diced tomatoes" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": null, "unit": "", "name": "smoked paprika", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "cumin", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" }
           ],
           "steps": [
             "Saute onion and garlic in olive oil.",
@@ -263,13 +280,15 @@
         {
           "title": "Baked Cod with Warm Lentil Salad",
           "ingredients": [
-            "2 cod fillets",
-            "3/4 cup green or brown lentils",
-            "1 carrot diced",
-            "1 celery stalk diced",
-            "1 small onion chopped",
-            "1 tbsp olive oil",
-            "Lemon, pepper, parsley"
+            { "qty": 2, "unit": "fillet", "name": "cod" },
+            { "qty": 0.75, "unit": "cup", "name": "green or brown lentils" },
+            { "qty": 1, "unit": "", "name": "carrot", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "celery stalk", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 1, "unit": "tbsp", "name": "olive oil" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "parsley", "note": "to taste" }
           ],
           "steps": [
             "Simmer lentils with carrot, celery and onion until tender; drain and toss with olive oil and lemon.",
@@ -285,13 +304,14 @@
         {
           "title": "Moong Dal Chilla with Veg Filling",
           "ingredients": [
-            "1 cup split yellow moong dal",
-            "1 small onion finely chopped",
-            "1 tomato finely chopped",
-            "1 green chili chopped",
-            "1/2 tsp cumin, salt to taste",
-            "1 tbsp chopped coriander",
-            "1 to 2 tsp oil for cooking"
+            { "qty": 1, "unit": "cup", "name": "split yellow moong dal" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, finely chopped" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "finely chopped" },
+            { "qty": 1, "unit": "", "name": "green chili", "note": "chopped" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": 1, "unit": "tbsp", "name": "coriander leaves", "note": "chopped" },
+            { "qty": 2, "unit": "tsp", "name": "oil", "note": "for cooking" }
           ],
           "steps": [
             "Soak moong dal and grind into a smooth batter with cumin and salt.",
@@ -303,12 +323,14 @@
         {
           "title": "Vegetable Dalia (Broken Wheat Upma)",
           "ingredients": [
-            "3/4 cup dalia (broken wheat)",
-            "1 small onion chopped",
-            "1/2 cup mixed vegetables (carrot, beans, peas)",
-            "1 tsp mustard seeds, 6 to 8 curry leaves",
-            "1 tsp oil",
-            "Salt, lemon to finish"
+            { "qty": 0.75, "unit": "cup", "name": "dalia (broken wheat)" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 0.5, "unit": "cup", "name": "mixed vegetables", "note": "carrot, beans, peas" },
+            { "qty": 1, "unit": "tsp", "name": "mustard seeds" },
+            { "qty": 8, "unit": "", "name": "curry leaves" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to finish" }
           ],
           "steps": [
             "Dry roast dalia 3 to 4 minutes.",
@@ -321,11 +343,13 @@
         {
           "title": "Oats Vegetable Cheela",
           "ingredients": [
-            "1 cup rolled oats powdered",
-            "1/4 cup low fat curd or water to make batter",
-            "1/2 cup mixed grated vegetables (carrot, zucchini, capsicum)",
-            "1/2 tsp cumin, pinch turmeric, salt",
-            "1 to 2 tsp oil for cooking"
+            { "qty": 1, "unit": "cup", "name": "rolled oats", "note": "powdered" },
+            { "qty": 0.25, "unit": "cup", "name": "low fat curd or water" },
+            { "qty": 0.5, "unit": "cup", "name": "mixed grated vegetables", "note": "carrot, zucchini, capsicum" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": null, "unit": "", "name": "turmeric", "note": "pinch" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": 2, "unit": "tsp", "name": "oil", "note": "for cooking" }
           ],
           "steps": [
             "Mix oats powder, curd or water and spices to a pourable batter.",
@@ -337,12 +361,14 @@
         {
           "title": "Sprouted Moong Salad",
           "ingredients": [
-            "1 1/2 cups sprouted moong",
-            "1/2 cucumber diced",
-            "1 tomato diced",
-            "1/4 onion finely chopped",
-            "Lemon juice, chaat masala (low sodium), pepper",
-            "Fresh coriander"
+            { "qty": 1.5, "unit": "cup", "name": "sprouted moong" },
+            { "qty": 0.5, "unit": "", "name": "cucumber", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "diced" },
+            { "qty": 0.25, "unit": "", "name": "onion", "note": "finely chopped" },
+            { "qty": null, "unit": "", "name": "lemon juice", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "chaat masala", "note": "low sodium; to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to taste" }
           ],
           "steps": [
             "Lightly steam sprouts 2 to 3 minutes (optional).",
@@ -353,13 +379,17 @@
         {
           "title": "Poha with Peas and Peanuts (Low Oil)",
           "ingredients": [
-            "2 cups thick poha",
-            "1 small onion chopped",
-            "1/2 cup green peas",
-            "1 green chili, curry leaves",
-            "1 tsp mustard seeds, 1 tbsp peanuts",
-            "1 to 2 tsp oil",
-            "Turmeric, salt, lemon"
+            { "qty": 2, "unit": "cup", "name": "thick poha" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 0.5, "unit": "cup", "name": "green peas" },
+            { "qty": 1, "unit": "", "name": "green chili" },
+            { "qty": 8, "unit": "", "name": "curry leaves" },
+            { "qty": 1, "unit": "tsp", "name": "mustard seeds" },
+            { "qty": 1, "unit": "tbsp", "name": "peanuts" },
+            { "qty": 2, "unit": "tsp", "name": "oil" },
+            { "qty": null, "unit": "", "name": "turmeric", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to finish" }
           ],
           "steps": [
             "Rinse poha and rest 10 minutes.",
@@ -373,14 +403,15 @@
         {
           "title": "Chana Masala (Low Oil)",
           "ingredients": [
-            "1 cup dry chickpeas soaked",
-            "1 onion chopped",
-            "2 tomatoes pureed",
-            "1 tsp ginger garlic paste",
-            "1 tsp chana masala powder",
-            "1/2 tsp turmeric, 1/2 tsp cumin",
-            "1 tbsp oil",
-            "Fresh coriander"
+            { "qty": 1, "unit": "cup", "name": "dry chickpeas", "note": "soaked" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "chopped" },
+            { "qty": 2, "unit": "", "name": "tomatoes", "note": "pureed" },
+            { "qty": 1, "unit": "tsp", "name": "ginger garlic paste" },
+            { "qty": 1, "unit": "tsp", "name": "chana masala powder" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": 1, "unit": "tbsp", "name": "oil" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to garnish" }
           ],
           "steps": [
             "Pressure cook soaked chickpeas until tender.",
@@ -392,13 +423,14 @@
         {
           "title": "Masoor Dal Tadka with Spinach",
           "ingredients": [
-            "3/4 cup red masoor dal",
-            "2 cups spinach chopped",
-            "1 tomato chopped",
-            "1 small onion chopped",
-            "1 tsp oil",
-            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
-            "Lemon to finish"
+            { "qty": 0.75, "unit": "cup", "name": "red masoor dal" },
+            { "qty": 2, "unit": "cup", "name": "spinach", "note": "chopped" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "chopped" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin seeds" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to finish" }
           ],
           "steps": [
             "Rinse dal, add water, turmeric, onion and tomato; simmer until dal is soft.",
@@ -410,14 +442,15 @@
         {
           "title": "Rajma Masala (Low Oil)",
           "ingredients": [
-            "1 cup dry rajma soaked",
-            "1 onion chopped",
-            "2 tomatoes pureed",
-            "1 tsp ginger garlic paste",
-            "1 tsp rajma masala powder",
-            "1/2 tsp turmeric, 1/2 tsp cumin",
-            "1 tbsp oil",
-            "Fresh coriander"
+            { "qty": 1, "unit": "cup", "name": "dry rajma", "note": "soaked" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "chopped" },
+            { "qty": 2, "unit": "", "name": "tomatoes", "note": "pureed" },
+            { "qty": 1, "unit": "tsp", "name": "ginger garlic paste" },
+            { "qty": 1, "unit": "tsp", "name": "rajma masala powder" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": 1, "unit": "tbsp", "name": "oil" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to garnish" }
           ],
           "steps": [
             "Pressure cook soaked rajma until tender.",
@@ -429,13 +462,18 @@
         {
           "title": "Grilled Tandoori Fish with Brown Rice and Kachumber",
           "ingredients": [
-            "2 firm fish fillets (surmai, cod or salmon)",
-            "1/2 cup low fat curd",
-            "1 tsp tandoori masala",
-            "1/2 tsp turmeric, 1/2 tsp cumin",
-            "1 tsp lemon juice, salt to taste",
-            "2 cups cooked brown rice",
-            "Kachumber: cucumber, tomato, onion, lemon"
+            { "qty": 2, "unit": "fillet", "name": "firm fish", "note": "surmai, cod or salmon" },
+            { "qty": 0.5, "unit": "cup", "name": "low fat curd" },
+            { "qty": 1, "unit": "tsp", "name": "tandoori masala" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin" },
+            { "qty": 1, "unit": "tsp", "name": "lemon juice" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": 2, "unit": "cup", "name": "cooked brown rice" },
+            { "qty": 1, "unit": "", "name": "cucumber", "note": "for kachumber" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "for kachumber" },
+            { "qty": 0.5, "unit": "", "name": "onion", "note": "for kachumber" },
+            { "qty": 1, "unit": "", "name": "lemon", "note": "for kachumber" }
           ],
           "steps": [
             "Mix curd, spices, lemon and salt; coat fish and marinate.",
@@ -447,14 +485,17 @@
         {
           "title": "Mixed Vegetable Tofu Stir Fry with Chapati",
           "ingredients": [
-            "200 g firm tofu cubed",
-            "1 cup cauliflower florets",
-            "1 cup bell peppers sliced",
-            "1 small onion sliced",
-            "1 tsp ginger garlic paste",
-            "1 tbsp oil",
-            "Garam masala, turmeric, salt, pepper",
-            "2 whole wheat chapatis"
+            { "qty": 200, "unit": "g", "name": "firm tofu", "note": "cubed" },
+            { "qty": 1, "unit": "cup", "name": "cauliflower florets" },
+            { "qty": 1, "unit": "cup", "name": "bell peppers", "note": "sliced" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "sliced" },
+            { "qty": 1, "unit": "tsp", "name": "ginger garlic paste" },
+            { "qty": 1, "unit": "tbsp", "name": "oil" },
+            { "qty": null, "unit": "", "name": "garam masala", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "turmeric", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": 2, "unit": "", "name": "whole wheat chapati" }
           ],
           "steps": [
             "Press tofu and cut into cubes.",
@@ -468,13 +509,14 @@
         {
           "title": "Lauki Chana Dal (Bottle Gourd with Bengal Gram)",
           "ingredients": [
-            "1 cup chana dal soaked",
-            "2 cups lauki diced",
-            "1 tomato chopped",
-            "1 small onion chopped",
-            "1 tsp oil",
-            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
-            "Fresh coriander"
+            { "qty": 1, "unit": "cup", "name": "chana dal", "note": "soaked" },
+            { "qty": 2, "unit": "cup", "name": "lauki", "note": "diced" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "chopped" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin seeds" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to garnish" }
           ],
           "steps": [
             "Soak chana dal and pressure cook until half done.",
@@ -486,13 +528,14 @@
         {
           "title": "Baingan Bharta (Low Oil)",
           "ingredients": [
-            "2 large eggplants",
-            "1 onion chopped",
-            "2 tomatoes chopped",
-            "1 tsp ginger garlic paste",
-            "1 tsp oil",
-            "1/2 tsp cumin seeds, chili to taste",
-            "Fresh coriander"
+            { "qty": 2, "unit": "", "name": "eggplant", "note": "large" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "chopped" },
+            { "qty": 2, "unit": "", "name": "tomatoes", "note": "chopped" },
+            { "qty": 1, "unit": "tsp", "name": "ginger garlic paste" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin seeds" },
+            { "qty": null, "unit": "", "name": "chili", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to garnish" }
           ],
           "steps": [
             "Roast eggplants on flame or in oven until charred and soft; cool and peel.",
@@ -504,13 +547,14 @@
         {
           "title": "Methi Moong Dal",
           "ingredients": [
-            "3/4 cup split moong dal",
-            "2 cups methi (fenugreek) leaves chopped",
-            "1 tomato chopped",
-            "1 small onion chopped",
-            "1 tsp oil",
-            "1/2 tsp cumin seeds, 1/2 tsp turmeric",
-            "Lemon to finish"
+            { "qty": 0.75, "unit": "cup", "name": "split moong dal" },
+            { "qty": 2, "unit": "cup", "name": "methi (fenugreek) leaves", "note": "chopped" },
+            { "qty": 1, "unit": "", "name": "tomato", "note": "chopped" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, chopped" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "cumin seeds" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to finish" }
           ],
           "steps": [
             "Soak moong dal 30 minutes, then simmer with turmeric until almost tender.",
@@ -522,11 +566,14 @@
         {
           "title": "Bhindi Stir Fry (Okra) Low Oil",
           "ingredients": [
-            "400 g okra trimmed and sliced",
-            "1 small onion sliced",
-            "1 tsp oil",
-            "1/2 tsp turmeric, 1/2 tsp coriander powder",
-            "Salt, pepper, lemon"
+            { "qty": 400, "unit": "g", "name": "okra", "note": "trimmed and sliced" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, sliced" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "coriander powder" },
+            { "qty": null, "unit": "", "name": "salt", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "black pepper", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "lemon", "note": "to finish" }
           ],
           "steps": [
             "Pat dry okra to reduce slime.",
@@ -538,13 +585,15 @@
         {
           "title": "Tomato Fish Curry (Light)",
           "ingredients": [
-            "2 fish fillets (cod, rohu or salmon)",
-            "2 tomatoes pureed",
-            "1 small onion finely chopped",
-            "1 tsp ginger garlic paste",
-            "1 tsp oil",
-            "1/2 tsp turmeric, 1/2 tsp coriander, chili to taste",
-            "Fresh coriander"
+            { "qty": 2, "unit": "fillet", "name": "fish", "note": "cod, rohu or salmon" },
+            { "qty": 2, "unit": "", "name": "tomatoes", "note": "pureed" },
+            { "qty": 1, "unit": "", "name": "onion", "note": "small, finely chopped" },
+            { "qty": 1, "unit": "tsp", "name": "ginger garlic paste" },
+            { "qty": 1, "unit": "tsp", "name": "oil" },
+            { "qty": 0.5, "unit": "tsp", "name": "turmeric" },
+            { "qty": 0.5, "unit": "tsp", "name": "coriander powder" },
+            { "qty": null, "unit": "", "name": "chili", "note": "to taste" },
+            { "qty": null, "unit": "", "name": "coriander leaves", "note": "to garnish" }
           ],
           "steps": [
             "Saute onion in oil; add ginger garlic and spices; cook briefly.",

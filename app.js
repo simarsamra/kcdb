@@ -1,4 +1,4 @@
-// Recipes-only app, tablet-optimized, robust modals + weekly grocery with quantities
+// Structured-ingredients refactor: render + weekly grocery use qty/unit/name
 
 const KEY_CUISINE = 'kd_cuisine';
 const KEY_MEAL = 'kd_meal';
@@ -102,6 +102,24 @@ function renderMealTabs() {
   });
 }
 
+function formatQty(q) {
+  if (q == null || !Number.isFinite(q)) return '';
+  if (Math.abs(q - Math.round(q)) < 0.01) return String(Math.round(q));
+  return q.toFixed(2).replace(/\.00$/, '');
+}
+
+function formatIngredient(ing) {
+  if (typeof ing === 'string') return ing;
+  const qty = formatQty(ing.qty);
+  const unit = (ing.unit || '').trim();
+  const name = ing.name || '';
+  const note = (ing.note || '').trim();
+  const unitPart = unit ? ` ${unit}` : '';
+  const qtyPart = qty ? `${qty}${unitPart} ` : '';
+  const notePart = note ? ` (${note})` : '';
+  return `${qtyPart}${name}${notePart}`.trim();
+}
+
 function renderRecipe() {
   const r = pickRecipe(cuisine, meal, 0);
   const d = new Date();
@@ -121,7 +139,7 @@ function renderRecipe() {
   ingredientsListEl.innerHTML = '';
   (r.ingredients || []).forEach(it => {
     const li = document.createElement('li');
-    li.textContent = it;
+    li.textContent = formatIngredient(it);
     ingredientsListEl.appendChild(li);
   });
 
@@ -190,83 +208,29 @@ function toTitle(s) {
   return String(s || '').replace(/[-_]/g,' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-/* ---------- Weekly Grocery (all meals, next 7 days, with quantities) ---------- */
-
-const UNIT_ALIASES = {
-  cup:'cup', cups:'cup',
-  tbsp:'tbsp', tablespoon:'tbsp', tablespoons:'tbsp', tbsps:'tbsp',
-  tsp:'tsp', teaspoon:'tsp', teaspoons:'tsp', tsps:'tsp',
-  g:'g', gram:'g', grams:'g',
-  kg:'kg', kgs:'kg',
-  ml:'ml', mls:'ml',
-  l:'l', liter:'l', liters:'l', litres:'l',
-  oz:'oz', ounce:'oz', ounces:'oz',
-  lb:'lb', lbs:'lb', pound:'lb', pounds:'lb',
-  clove:'clove', cloves:'clove',
-  slice:'slice', slices:'slice',
-  can:'can', cans:'can',
-  piece:'piece', pieces:'piece'
-};
-
-const VULGAR = { '¼':'1/4','½':'1/2','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8' };
-
-function replaceVulgar(s) {
-  return s.replace(/[¼½¾⅓⅔⅛⅜⅝⅞]/g, m => VULGAR[m] || m);
-}
-
-function fracToNum(fr) {
-  const m = fr.match(/^(\d+)\s+(\d+)\/(\d+)$/); // mixed "1 1/2"
-  if (m) return parseFloat(m[1]) + (parseFloat(m[2]) / parseFloat(m[3]));
-  const m2 = fr.match(/^(\d+)\/(\d+)$/); // "1/2"
-  if (m2) return parseFloat(m2[1]) / parseFloat(m2[2]);
-  return Number.isFinite(+fr) ? +fr : null;
-}
-
-function parseIngredient(raw) {
-  if (!raw) return { name: '', unit: '', qty: null };
-  let s = replaceVulgar(String(raw)).toLowerCase().trim();
-  s = s.replace(/\([^)]*\)/g, ' ').replace(/\s{2,}/g, ' ').trim();
-
-  const tokens = s.split(/\s+/);
-  let i = 0, qty = null, unit = '';
-
-  const range = tokens[i]?.match(/^(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)/);
-  if (range) {
-    qty = parseFloat(range[1]); // take the lower end
-    i++;
-  } else if (/^\d+(?:\.\d+)?$/.test(tokens[i])) {
-    qty = parseFloat(tokens[i]); i++;
-    if (/^\d+\/\d+$/.test(tokens[i])) { qty += fracToNum(tokens[i]); i++; }
-  } else if (/^\d+\/\d+$/.test(tokens[i])) {
-    qty = fracToNum(tokens[i]); i++;
-  } else if (tokens[i] === 'a' || tokens[i] === 'an') {
-    qty = 1; i++;
-  }
-
-  const maybeUnit = UNIT_ALIASES[tokens[i]] || '';
-  if (maybeUnit) { unit = maybeUnit; i++; }
-
-  if (tokens[i] === 'of') i++;
-  const name = tokens.slice(i).join(' ').trim();
-
-  // If still no name, fall back to raw
-  return {
-    name: name || s,
-    unit: unit || (qty != null ? '' : ''), // keep empty if unknown
-    qty: qty
-  };
-}
+/* ---------- Weekly Grocery (structured ingredients, all meals, next 7 days) ---------- */
 
 function weekKey() { return Math.floor(getDayNumber(0) / 7); }
 
 function buildWeeklyGrocery(selectedCuisine) {
-  const map = new Map(); // key: name|unit -> {name, unit, qty, count}
+  const map = new Map(); // key: name|unit -> {name, unit, qty, count, anyQty}
   for (let offset = 0; offset < 7; offset++) {
     for (const m of MEALS) {
       const r = pickRecipe(selectedCuisine, m, offset);
       if (!r || !Array.isArray(r.ingredients)) continue;
-      for (const raw of r.ingredients) {
-        const { name, unit, qty } = parseIngredient(raw);
+      for (const ing of r.ingredients) {
+        if (!ing) continue;
+        let name, unit, qty;
+        if (typeof ing === 'string') {
+          // fallback
+          name = ing.toLowerCase();
+          unit = '';
+          qty = null;
+        } else {
+          name = (ing.name || '').toLowerCase().trim();
+          unit = (ing.unit || '').toLowerCase().trim();
+          qty = typeof ing.qty === 'number' ? ing.qty : null;
+        }
         if (!name) continue;
         const key = `${name}|${unit}`;
         if (!map.has(key)) map.set(key, { name, unit, qty: 0, count: 0, anyQty: false });
@@ -280,20 +244,8 @@ function buildWeeklyGrocery(selectedCuisine) {
       }
     }
   }
-  // If no numeric qty seen for an item, fall back to count
-  const list = [];
-  for (const v of map.values()) {
-    list.push(v);
-  }
-  // sort by name
-  list.sort((a, b) => a.name.localeCompare(b.name));
+  const list = Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name));
   return list;
-}
-
-function formatQty(q) {
-  if (!Number.isFinite(q) || q === 0) return '';
-  if (Math.abs(q - Math.round(q)) < 0.01) return String(Math.round(q));
-  return q.toFixed(2).replace(/\.00$/, '');
 }
 
 function storageCheckedKey() {
@@ -311,6 +263,8 @@ function loadCheckedSet() {
 function saveCheckedSet(set) {
   localStorage.setItem(storageCheckedKey(), JSON.stringify(Array.from(set)));
 }
+
+function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function renderGroceryList() {
   const items = buildWeeklyGrocery(cuisine);
@@ -337,8 +291,6 @@ function renderGroceryList() {
     `;
   }).join('');
 }
-
-function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function showModalEl(el) {
   el.classList.remove('hidden');
@@ -405,6 +357,7 @@ copyGroceryBtn?.addEventListener('click', async () => {
   }
 })();
 
+/* ---------- Live updates / day change ---------- */
 // Auto-refresh when a new deployment is available (GitHub Pages)
 const VERSION_POLL_MS = 60000; // 60s
 let currentVersion = null;
@@ -447,7 +400,5 @@ function autoSelectMealByTime() {
     renderRecipe();
   }
 }
-
-// Call at startup and when the day rolls over
 autoSelectMealByTime();
-setInterval(autoSelectMealByTime, 30 * 60 * 1000); // every 30 min
+setInterval(autoSelectMealByTime, 30 * 60 * 1000);
