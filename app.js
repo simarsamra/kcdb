@@ -226,3 +226,29 @@ async function pollVersion() {
 }
 setInterval(pollVersion, VERSION_POLL_MS);
 pollVersion();
+
+// Rerender when the calendar day changes (if tab stays open overnight)
+let currentDayKey = getDayNumber(0);
+setInterval(() => {
+  const k = getDayNumber(0);
+  if (k !== currentDayKey) {
+    currentDayKey = k;
+    renderRecipe();
+  }
+}, 60_000);
+
+// Auto-select meal based on time
+function autoSelectMealByTime() {
+  const h = new Date().getHours();
+  const target = h < 11 ? 'Breakfast' : h < 16 ? 'Lunch' : 'Dinner';
+  if (meal !== target) {
+    meal = target;
+    localStorage.setItem(KEY_MEAL, meal);
+    renderMealTabs();
+    renderRecipe();
+  }
+}
+
+// Call at startup and when the day rolls over
+autoSelectMealByTime();
+setInterval(autoSelectMealByTime, 30 * 60 * 1000); // every 30 min
