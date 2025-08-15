@@ -3,92 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kitchen Dashboard</title>
+  <title>Kitchen Dashboard - Recipes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
     <header>
-      <h1>Kitchen Dashboard</h1>
+      <h1>Recipes</h1>
       <div class="top-row">
         <div id="clock"></div>
-        <div>
-          <button id="settingsBtn">Settings</button>
-          <button id="refreshBtn">Refresh</button>
-        </div>
       </div>
     </header>
 
-    <nav class="nav">
-      <button data-view="dashboard" class="nav-btn">Dashboard</button>
-      <button data-view="recipe" class="nav-btn">Today's Recipe</button>
-      <button data-view="grocery" class="nav-btn">Grocery (Week)</button>
-      <button data-view="calendar" class="nav-btn">Calendar</button>
-      <button data-view="prep" class="nav-btn">Prep Ahead</button>
-    </nav>
+    <main class="container">
+      <!-- Cuisine selector -->
+      <div id="cuisineTabs" class="tabs card"></div>
 
-    <main id="views">
-      <section id="view-dashboard" class="view active">
-        <div id="todayRecipeSmall"></div>
-        <div id="prepNowSmall"></div>
-        <div id="calendarSmall"></div>
-      </section>
+      <!-- Meal selector -->
+      <div id="mealTabs" class="tabs card"></div>
 
-      <section id="view-recipe" class="view">
-        <button class="back">Back</button>
-        <h2>Today's Recipe</h2>
-        <div id="recipeFull"></div>
-      </section>
-
-      <section id="view-grocery" class="view">
-        <button class="back">Back</button>
-        <h2>Weekly Grocery List</h2>
-        <div id="groceryControls">
-          <button id="generateFromRecipes">Generate from recipes</button>
-          <button id="clearChecked">Clear checked</button>
+      <!-- Recipe card -->
+      <section class="card" id="recipeCard">
+        <div class="recipe-header">
+          <h2 id="recipeTitle">Loading…</h2>
+          <button id="prepNextBtn" class="btn">Prep for upcoming recipes</button>
         </div>
-        <ul id="groceryList"></ul>
-      </section>
+        <div class="meta" id="dayInfo"></div>
 
-      <section id="view-calendar" class="view">
-        <button class="back">Back</button>
-        <h2>Calendar (next 7 days)</h2>
-        <div id="calendarEvents"></div>
-      </section>
+        <div class="split">
+          <div>
+            <h3>Ingredients</h3>
+            <ul id="ingredientsList"></ul>
+          </div>
+          <div>
+            <h3>Steps</h3>
+            <ol id="stepsList"></ol>
+          </div>
+        </div>
 
-      <section id="view-prep" class="view">
-        <button class="back">Back</button>
-        <h2>Prep Ahead</h2>
-        <div id="prepList"></div>
+        <div id="currentPrepNote" class="prep-note hidden"></div>
       </section>
     </main>
 
     <footer>
-      <small>Offline-first. Recipes editable in Google Sheet.</small>
+      <small>Recipes are loaded from recipes.json</small>
     </footer>
   </div>
 
-  <!-- Settings modal -->
-  <div id="settingsModal" class="modal hidden">
+  <!-- Prep modal -->
+  <div id="prepModal" class="modal hidden">
     <div class="modal-body">
-      <h3>Settings</h3>
-      <!-- ADDED input for Google Sheet URL -->
-      <label>Google Sheet CSV URL:
-        <input id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv" />
-      </label>
-      <hr style="margin: 1rem 0;">
-      <p>For Calendar Sync (Optional):</p>
-      <label>Apps Script Base URL:
-        <input id="baseUrl" placeholder="https://script.google.com/macros/s/XXX/exec" />
-      </label>
-      <label>API Token:
-        <input id="apiToken" placeholder="secret-token" />
-      </label>
+      <h3>Upcoming Prep</h3>
+      <div id="prepContent"></div>
       <div class="actions">
-        <button id="saveSettings">Save</button>
-        <button id="closeSettings">Close</button>
+        <button id="closePrepModal" class="btn">Close</button>
       </div>
-      <p class="note">To get the CSV URL, open your Google Sheet, go to File > Share > Publish to web, select the correct sheet, and publish as "Comma-separated values (.csv)".</p>
     </div>
   </div>
 

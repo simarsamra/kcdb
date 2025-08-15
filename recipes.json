@@ -1,38 +1,57 @@
 {
   "rotation_days": 4,
-  "categories": ["Breakfast","Lunch","Dinner","Spare"],
-  "recipes": {
-    "Breakfast": [
-      {
-        "title":"Oatmeal with Berries",
-        "ingredients":["1 cup rolled oats","2 cup water","0.5 cup berries"],
-        "steps":["Boil water","Add oats","Simmer 5 min","Top with berries"],
-        "prepNotes":""
-      }
-    ],
-    "Lunch": [
-      {
-        "title":"Grilled Cheese",
-        "ingredients":["2 slice bread","2 slice cheddar cheese","1 tbsp butter"],
-        "steps":["Butter bread","Add cheese","Grill until golden"],
-        "prepNotes":""
-      }
-    ],
-    "Dinner": [
-      {
-        "title":"Pasta Marinara",
-        "ingredients":["200 g pasta","1 cup tomato sauce"],
-        "steps":["Boil pasta","Heat sauce","Mix and serve"],
-        "prepNotes":""
-      }
-    ],
-    "Spare": [
-      {
-        "title":"Fruit Bowl",
-        "ingredients":["2 cup mixed fruit"],
-        "steps":["Chop fruits","Serve chilled"],
-        "prepNotes":""
-      }
-    ]
+  "cuisines": {
+    "international": {
+      "Breakfast": [
+        {
+          "title": "Oatmeal with Berries",
+          "ingredients": ["1 cup rolled oats", "2 cup water", "0.5 cup berries"],
+          "steps": ["Boil water", "Add oats", "Simmer 5 min", "Top with berries"],
+          "prepNotes": ""
+        }
+      ],
+      "Lunch": [
+        {
+          "title": "Grilled Cheese",
+          "ingredients": ["2 slice bread", "2 slice cheddar cheese", "1 tbsp butter"],
+          "steps": ["Butter bread", "Add cheese", "Grill until golden"],
+          "prepNotes": ""
+        }
+      ],
+      "Dinner": [
+        {
+          "title": "Pasta Marinara",
+          "ingredients": ["200 g pasta", "1 cup tomato sauce"],
+          "steps": ["Boil pasta", "Heat sauce", "Mix and serve"],
+          "prepNotes": ""
+        }
+      ]
+    },
+    "northIndian": {
+      "Breakfast": [
+        {
+          "title": "Poha",
+          "ingredients": ["2 cup poha", "1 onion", "1 potato", "spices", "peanuts"],
+          "steps": ["Rinse poha", "Temper spices", "Saute onions/potatoes", "Mix poha & peanuts"],
+          "prepNotes": "Rinse poha 10 minutes before cooking."
+        }
+      ],
+      "Lunch": [
+        {
+          "title": "Chole (Chickpea Curry)",
+          "ingredients": ["2 cup chana (chickpeas)", "onion", "tomato", "spices"],
+          "steps": ["Pressure cook chana", "Make masala", "Combine & simmer"],
+          "prepNotes": "Soak chana for 8–12 hours; pressure cook 25–30 min."
+        }
+      ],
+      "Dinner": [
+        {
+          "title": "Rajma",
+          "ingredients": ["2 cup rajma (kidney beans)", "onion", "tomato", "spices"],
+          "steps": ["Pressure cook rajma", "Make masala", "Combine & simmer"],
+          "prepNotes": "Soak rajma 8–12 hours; pressure cook 25–30 min."
+        }
+      ]
+    }
   }
 }
