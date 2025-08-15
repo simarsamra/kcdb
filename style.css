@@ -63,6 +63,10 @@ ul, ol { padding-left:20px; }
 
 .recipe-header { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 
+.checklist { list-style:none; padding-left:0; margin:8px 0; }
+.checklist li { display:flex; align-items:flex-start; gap:10px; padding:6px 2px; }
+.checklist input[type="checkbox"] { transform: scale(1.2); margin-top:2px; }
+
 @media (min-width:480px) and (max-width:900px) {
   html { font-size:17px; }   /* comfortable on 8" portrait */
   header h1 { font-size:1.5rem; }

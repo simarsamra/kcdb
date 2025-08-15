@@ -18,6 +18,14 @@ const prepModal = document.getElementById('prepModal');
 const prepContent = document.getElementById('prepContent');
 const closePrepModal = document.getElementById('closePrepModal');
 const closePrepModalX = document.getElementById('closePrepModalX');
+const groceryBtn = document.getElementById('groceryBtn');
+const groceryModal = document.getElementById('groceryModal');
+const groceryContent = document.getElementById('groceryContent');
+const groceryCuisineLabel = document.getElementById('groceryCuisineLabel');
+const closeGroceryModal = document.getElementById('closeGroceryModal');
+const closeGroceryModalX = document.getElementById('closeGroceryModalX');
+const copyGroceryBtn = document.getElementById('copyGroceryBtn');
+const clearCheckedBtn = document.getElementById('clearCheckedBtn');
 
 // State
 let data = null;
@@ -180,6 +188,108 @@ function toTitle(s) {
   return s.replace(/[-_]/g,' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
+// Helpers for weekly list
+function weekKey() { return Math.floor(getDayNumber(0) / 7); }
+
+function normalizeIngredient(s) {
+  if (!s) return '';
+  let t = String(s).toLowerCase().trim();
+
+  // drop parentheses content
+  t = t.replace(/\([^)]*\)/g, ' ').trim();
+
+  // remove leading quantities and common units
+  t = t.replace(
+    /^(?:\d+[\d\/\.\-\s]*\s*)?(?:cups?|tbsps?|tablespoons?|tsps?|teaspoons?|g|kg|grams?|ml|l|liters?|oz|ounces?|pounds?|lbs?|cloves?|slices?|cans?|pieces?|tbsp|tsp)\b\s*/i,
+    ''
+  );
+
+  // remove leading simple counts (e.g., "2 ", "a ", "an ")
+  t = t.replace(/^(?:\d+|a|an)\s+/, '');
+
+  // clean punctuation and extra spaces
+  t = t.replace(/[.,;:]+$/g, '').replace(/\s{2,}/g, ' ').trim();
+
+  // prefer ingredient name up to " - " or " — "
+  t = t.split(' - ')[0].split(' — ')[0].trim();
+
+  return t;
+}
+
+function buildWeeklyGrocery(selectedCuisine) {
+  const map = new Map(); // key -> {label, key}
+  for (let offset = 0; offset < 7; offset++) {
+    for (const m of MEALS) {
+      const r = pickRecipe(selectedCuisine, m, offset);
+      if (!r || !Array.isArray(r.ingredients)) continue;
+      for (const raw of r.ingredients) {
+        if (!raw) continue;
+        const key = normalizeIngredient(raw);
+        if (!key) continue;
+        if (!map.has(key)) {
+          // label: capitalize first letter
+          const label = key.charAt(0).toUpperCase() + key.slice(1);
+          map.set(key, { key, label });
+        }
+      }
+    }
+  }
+  // sort alphabetically
+  return Array.from(map.values()).sort((a, b) => a.label.localeCompare(b.label));
+}
+
+function storageCheckedKey() {
+  return `kd_grocery_checked_${weekKey()}_${cuisine}`;
+}
+
+function loadCheckedSet() {
+  try {
+    const raw = localStorage.getItem(storageCheckedKey());
+    if (!raw) return new Set();
+    return new Set(JSON.parse(raw));
+  } catch { return new Set(); }
+}
+
+function saveCheckedSet(set) {
+  localStorage.setItem(storageCheckedKey(), JSON.stringify(Array.from(set)));
+}
+
+function renderGroceryList() {
+  const items = buildWeeklyGrocery(cuisine);
+  const checked = loadCheckedSet();
+  groceryCuisineLabel.textContent = toTitle(cuisine);
+
+  if (!items.length) {
+    groceryContent.innerHTML = '<li>No ingredients found for the upcoming week.</li>';
+    return;
+  }
+
+  groceryContent.innerHTML = items.map(it => {
+    const id = `g_${it.key.replace(/\s+/g,'_')}`;
+    const isChecked = checked.has(it.key);
+    return `
+      <li>
+        <input type="checkbox" id="${id}" data-key="${it.key}" ${isChecked ? 'checked' : ''}/>
+        <label for="${id}">${it.label}</label>
+      </li>
+    `;
+  }).join('');
+}
+
+function showModalEl(el) {
+  el.classList.remove('hidden');
+  document.body.classList.add('no-scroll');
+}
+function hideModalEl(el) {
+  el.classList.add('hidden');
+  document.body.classList.remove('no-scroll');
+}
+
+function openGroceryModal() {
+  renderGroceryList();
+  showModalEl(groceryModal);
+}
+
 // Events
 prepNextBtn?.addEventListener('click', openPrepModal);
 closePrepModal?.addEventListener('click', hideModal);
@@ -191,6 +301,47 @@ prepModal?.addEventListener('click', (e) => {
 // Close on Escape
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !prepModal.classList.contains('hidden')) hideModal();
+});
+
+// Events: grocery modal
+groceryBtn?.addEventListener('click', openGroceryModal);
+closeGroceryModal?.addEventListener('click', () => hideModalEl(groceryModal));
+closeGroceryModalX?.addEventListener('click', () => hideModalEl(groceryModal));
+groceryModal?.addEventListener('click', (e) => {
+  if (!e.target.closest('.modal-body')) hideModalEl(groceryModal);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !groceryModal.classList.contains('hidden')) hideModalEl(groceryModal);
+});
+
+// Checkbox change + persistence
+groceryContent?.addEventListener('change', (e) => {
+  const cb = e.target;
+  if (cb && cb.matches('input[type="checkbox"][data-key]')) {
+    const key = cb.getAttribute('data-key');
+    const set = loadCheckedSet();
+    if (cb.checked) set.add(key); else set.delete(key);
+    saveCheckedSet(set);
+  }
+});
+
+// Clear checked
+clearCheckedBtn?.addEventListener('click', () => {
+  const set = new Set(); // empty
+  saveCheckedSet(set);
+  // uncheck all
+  groceryContent.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+});
+
+// Copy list
+copyGroceryBtn?.addEventListener('click', async () => {
+  const lines = Array.from(groceryContent.querySelectorAll('li')).map(li => {
+    const cb = li.querySelector('input[type="checkbox"]');
+    const label = li.querySelector('label')?.textContent ?? '';
+    return `${cb?.checked ? '[x]' : '[ ]'} ${label}`;
+  });
+  try { await navigator.clipboard.writeText(lines.join('\n')); }
+  catch { /* ignore */ }
 });
 
 // Init
